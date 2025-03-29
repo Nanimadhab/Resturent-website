@@ -1519,6 +1519,9 @@ marquee {
   }
 }
 @media (max-width: 477px) {
+  .img-slidbar {
+    overflow: hidden;
+  }
   #producttitle {
     display: flex;
     flex-direction: column;
