@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Your Orders</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+      table {
+        width: 80%;
+        margin: auto;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid white;
+      }
+      th {
+        background-color: #456cee;
+        color: black;
+      }
+
+      .delete-btn {
+        color: red;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .link-button {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        color: aqua;
+        text-decoration: underline;
+        line-height: 3rem;
+      }
+    </style>
+  </head>
+  <div class="navbar">
+    <div class="logo">
+      <img src="/assets/images/logocs.png" alt="Cs Wala" />
+    </div>
+    <div class="navsection">
+      <i id="close" class="fa-solid fa-x"></i>
+      <div class="logo1">
+        <img src="/assets/images/logocs.png" alt="Cs Wala" />
+      </div>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="menus.html">MENUS</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="chefs.html">OUER CHEFS</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+      <div class="visit">
+        <h1>VISIT US</h1>
+        <p>
+          Restaurant ST, Kolkata city
+          <br />
+          Pin - 700162. <br />
+          Open 9:30am - 2-30pm <br />
+          <a href="#"><h3>santubapari967@gmail.com</h3></a>
+        </p>
+        <div class="spuar"></div>
+        <div class="boking-req">
+          <h1>Booking Request</h1>
+          <a href="https://wa.me/918777831891" target="_blank">
+            <h2>+91 8777831891</h2>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="btn">
+      <i id="bar" class="fa-solid fa-bars"></i>
+    </div>
+  </div>
+  <body>
+    <h2>Your Orders</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Food Item</th>
+          <th>Price</th>
+          <th>Delivery Time</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="ordersTableBody"></tbody>
+    </table>
+    <br />
+    <a class="link-button" href="atumetic.html">Place New Order</a>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const orders = JSON.parse(localStorage.getItem("orders")) || [];
+        const ordersTableBody = document.getElementById("ordersTableBody");
+
+        if (orders.length === 0) {
+          ordersTableBody.innerHTML =
+            "<tr><td colspan='6'>No orders found.</td></tr>";
+        } else {
+          orders.forEach((order, index) => {
+            const row = document.createElement("tr");
+
+            // Create cells for each order's data
+            const nameCell = document.createElement("td");
+            nameCell.textContent = order.name;
+
+            const addressCell = document.createElement("td");
+            addressCell.textContent = order.address;
+
+            const foodItemCell = document.createElement("td");
+            foodItemCell.textContent = order.foodItem;
+
+            const priceCell = document.createElement("td");
+            priceCell.textContent = `₹${order.foodPrice}`;
+            priceCell.style.color = "green";
+
+            // If price is greater than 50, add the green background to the price cell
+            if (order.foodPrice > 50) {
+              priceCell.classList.add("high-price");
+            }
+
+            const deliveryTimeCell = document.createElement("td");
+            deliveryTimeCell.textContent = order.deliveryTime;
+
+            // Create delete button for each row
+            const actionCell = document.createElement("td");
+            const deleteButton = document.createElement("span");
+            deleteButton.textContent = "Delete";
+            deleteButton.classList.add("delete-btn");
+
+            // Add delete functionality
+            deleteButton.addEventListener("click", () => {
+              // Remove the row from the table
+              row.remove();
+
+              // Remove the order from localStorage
+              orders.splice(index, 1);
+              localStorage.setItem("orders", JSON.stringify(orders));
+            });
+
+            // Append cells and delete button to the row
+            actionCell.appendChild(deleteButton);
+            row.appendChild(nameCell);
+            row.appendChild(addressCell);
+            row.appendChild(foodItemCell);
+            row.appendChild(priceCell);
+            row.appendChild(deliveryTimeCell);
+            row.appendChild(actionCell);
+
+            // Append the row to the table body
+            ordersTableBody.appendChild(row);
+          });
+        }
+      });
+    </script>
+    <script src="./assets/copy.js"></script>
+  </body>
+</html>

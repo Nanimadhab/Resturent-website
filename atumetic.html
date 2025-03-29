@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- icon  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <title>Food Order Page</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+        background-image: url(./assets/images/footer-bg.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      form {
+        max-width: 400px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.295); /* Transparent white */
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px); /* Safari support */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .pepole {
+        padding-bottom: 25px;
+      }
+      .pepole div img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-right: 15px;
+        border-radius: 50%;
+      }
+      .pepole div .p {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+      .pepole div .p li {
+        display: flex;
+        align-items: center;
+        padding: 0.4rem;
+      }
+      .pepole div .p li i {
+        margin: 0 0.6rem;
+      }
+      input,
+      button,
+      select {
+        margin: 10px;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+      }
+      button {
+        background-color: rgba(11, 11, 196, 0.836);
+        color: white;
+        font-weight: 600;
+      }
+      .title-place {
+        padding: 1rem;
+      }
+      .title-place a {
+        text-decoration: underline;
+        color: aqua;
+      }
+      .success-message {
+        display: none;
+        color: green;
+        font-weight: bold;
+      }
+      #title-place-conten {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 3rem;
+        margin: 2rem;
+      }
+      .WhatsApp {
+        height: 5rem;
+        width: 5rem;
+
+        border-radius: 50%;
+        object-fit: cover;
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+      }
+      .WhatsApp img {
+        width: 100%;
+      }
+      @media (max-width: 477px) {
+        #title-place-conten {
+          flex-direction: column;
+          padding: 0.5rem;
+          margin: 0;
+        }
+      }
+    </style>
+  </head>
+  <div class="navbar">
+    <div class="logo">
+      <img src="/assets/images/logocs.png" alt="Cs Wala" />
+    </div>
+    <div class="navsection">
+      <i id="close" class="fa-solid fa-x"></i>
+      <div class="logo1">
+        <img src="/assets/images/logocs.png" alt="Cs Wala" />
+      </div>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="menus.html">MENUS</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="chefs.html">OUER CHEFS</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+      <div class="visit">
+        <h1>VISIT US</h1>
+        <p>
+          Restaurant ST, Kolkata city
+          <br />
+          Pin - 700162. <br />
+          Open 9:30am - 2-30pm <br />
+          <a href="#"><h3>santubapari967@gmail.com</h3></a>
+        </p>
+        <div class="spuar"></div>
+        <div class="boking-req">
+          <h1>Booking Request</h1>
+          <a href="https://wa.me/918777831891" target="_blank">
+            <h2>+91 8777831891</h2>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="btn">
+      <i id="bar" class="fa-solid fa-bars"></i>
+    </div>
+  </div>
+  <body>
+    <section id="title-place-conten">
+      <div class="WhatsApp">
+        <a href="https://wa.me/918777831891" target="_blank"
+          ><img src="./assets/images/whatapp.png" alt=""
+        /></a>
+      </div>
+      <div class="con-right">
+        <h2 class="title-place">Place Your Order</h2>
+        <form id="orderForm">
+          <input type="text" id="name" placeholder="Your Name" required />
+          <input type="text" id="address" placeholder="Your Address" required />
+          <select id="foodItem" required>
+            <option value="Pizza" data-price="99">Pizza - ₹99</option>
+            <option value="Burger" data-price="179">Burger - ₹179</option>
+            <option value="Pasta" data-price="155">Pasta - ₹155</option>
+            <option value="Salad" data-price="111">Salad - ₹111</option>
+          </select>
+          <label for="deliveryTime">Time to When You Need the Food:</label>
+          <input type="time" id="deliveryTime" required />
+          <button type="submit">Order Now</button>
+        </form>
+        <p class="success-message" id="successMessage">
+          Successfully sent your order!
+        </p>
+
+        <h3 class="title-place"><a href="view.html">View Your Orders</a></h3>
+      </div>
+      <!-- ti  -->
+      <div class="pepole">
+        <div>
+          <img src="./assets/images/people/pepole.jpg" alt="" />
+          <div class="p">
+            <h3>Santu bapar</h3>
+            Senior Marketing Menager <br />
+
+            <li>
+              <i class="fa-solid fa-map-location-dot"></i>
+              <p><a href="#">Gouranganagar, Satyajit Pally,HariMondir</a></p>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <p>
+                <a href="https://wa.me/918777831891" target="_blank"
+                  >8777831891</a
+                >
+              </p>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <p><a href="#">santubapari967@gmail.com</a></p>
+            </li>
+            <li>
+              <i class="fa-solid fa-clock"></i>
+              <p><a href="#">Open 9:30am - 2-30pm</a></p>
+            </li>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="./assets/images/logocs.png" alt="" />
+        <h4>Contact</h4>
+        <p><span>Address: </span>Gouranganagar Satyajit pally</p>
+        <p><span>Phone no: </span>6290988781</p>
+        <p><span>House: </span>Gouranganagar Satyajit pally</p>
+        <div class="follow">
+          <h4>follow us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook"></i>
+
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin"></i>
+            <i class="fab fa-github"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Rrivacy Rolicy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Halp</a>
+      </div>
+      <div class="col install">
+        <h4>From App Store of Google Play</h4>
+        <div class="row">
+          <img src="./assets/images/app.jpg" alt="sownlode" />
+          <img src="assets/images/play.jpg" alt="" />
+        </div>
+        <p>Secured Payment Gatways</p>
+        <img src="assets/images/pay.png" alt="" />
+      </div>
+      <div class="copyright">
+        <p>@2025 HTML,CSS,JS Template BY nanimadhabsarkar</p>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const orderForm = document.getElementById("orderForm");
+        const successMessage = document.getElementById("successMessage");
+
+        orderForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = document.getElementById("name").value;
+          const address = document.getElementById("address").value;
+          const foodItemElement = document.getElementById("foodItem");
+          const foodItem = foodItemElement.value;
+          const foodPrice =
+            foodItemElement.options[foodItemElement.selectedIndex].getAttribute(
+              "data-price"
+            );
+          const deliveryTime = document.getElementById("deliveryTime").value;
+          const message = `Hello, my name is ${name}. I live at ${address} and I want to order: ${foodItem} (Price: ₹${foodPrice}). Delivery Time: ${deliveryTime}.`;
+          const whatsappURL = `https://wa.me/916290988781?text=${encodeURIComponent(
+            message
+          )}`;
+
+          window.location.href = whatsappURL; // Automatically open WhatsApp and send message
+
+          successMessage.style.display = "block";
+          saveOrder(name, address, foodItem, foodPrice, deliveryTime);
+        });
+
+        function saveOrder(name, address, foodItem, foodPrice, deliveryTime) {
+          const orders = JSON.parse(localStorage.getItem("orders")) || [];
+          orders.push({ name, address, foodItem, foodPrice, deliveryTime });
+          localStorage.setItem("orders", JSON.stringify(orders));
+        }
+      });
+    </script>
+    <script src="./assets/copy.js"></script>
+  </body>
+</html>
